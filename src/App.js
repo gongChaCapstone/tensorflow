@@ -37,7 +37,6 @@ import * as fp from 'fingerpose';
 // import letterG from './letterImages/letterG.png';
 // import letterH from './letterImages/letterH.png';
 // import letterI from './letterImages/letterI.png';
-// import letterJ from './letterImages/letterJ.png';
 // import letterK from './letterImages/letterK.png';
 // import letterL from './letterImages/letterL.png';
 // import letterM from './letterImages/letterM.png';
@@ -45,10 +44,16 @@ import * as fp from 'fingerpose';
 // import letterO from './letterImages/letterO.png';
 // import letterP from './letterImages/letterP.png';
 // import letterQ from './letterImages/letterQ.png';
-import letterR from './letterImages/letterR.png';
-import letterS from './letterImages/letterS.png';
-import letterT from './letterImages/letterT.png';
-import letterU from './letterImages/letterU.png';
+// import letterR from './letterImages/letterR.png';
+// import letterS from './letterImages/letterS.png';
+// import letterT from './letterImages/letterT.png';
+// import letterU from './letterImages/letterU.png';
+// import letterV from './letterImages/letterV.png';
+// import letterW from './letterImages/letterW.png';
+// import letterX from './letterImages/letterX.png';
+// import letterY from './letterImages/letterY.png';
+import letterZ from './letterImages/letterZ.png';
+import letterJ from './letterImages/letterJ.png';
 
 //gestures
 // import letterAGesture from './letters/letterA';
@@ -68,20 +73,24 @@ import letterU from './letterImages/letterU.png';
 // import letterOGesture from './letters/letterO';
 // import letterPGesture from './letters/letterP';
 // import letterQGesture from './letters/letterQ';
-import letterRGesture from './letters/letterR';
-import letterSGesture from './letters/letterS';
-import letterTGesture from './letters/letterT';
-import letterUGesture from './letters/letterU';
+// import letterRGesture from './letters/letterR';
+// import letterSGesture from './letters/letterS';
+// import letterTGesture from './letters/letterT';
+// import letterUGesture from './letters/letterU';
+import letterVGesture from './letters/letterV';
+import letterWGesture from './letters/letterW';
+import letterXGesture from './letters/letterX';
+import letterYGesture from './letters/letterY';
 
 function App() {
-  const allLetters = ['letterR', 'letterS', 'letterT', 'letterU'];
+  const allLetters = ['letterV', 'letterW', 'letterX', 'letterY'];
 
   const webcamRef = useRef(null);
   const canvasRef = useRef(null);
 
-  const [currentLetter, setLetter] = useState('letterR');
+  const [currentLetter, setLetter] = useState('letterV');
   const [emoji, setEmoji] = useState(null);
-  const images = { letterR, letterS, letterT, letterU }; //--------ADD NEW HERE--------
+  const images = { letterV, letterW, letterX, letterY }; //--------ADD NEW HERE--------
 
   const gestureAccuracyMany = 9.9;
   const gestureAccuracyOne = 9.5;
@@ -144,10 +153,10 @@ function App() {
       if (hand.length > 0) {
         const GE = new fp.GestureEstimator([
           //--------ADD NEW HERE--------
-          letterRGesture,
-          letterSGesture,
-          letterTGesture,
-          letterUGesture,
+          letterVGesture,
+          letterWGesture,
+          letterXGesture,
+          letterYGesture,
         ]);
 
         //second argument is the confidence level
