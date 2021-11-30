@@ -71,7 +71,7 @@ function App() {
   const webcamRef = useRef(null);
   const canvasRef = useRef(null);
 
-  const [currentLetter, setLetter] = useState('letterI');
+  const [currentLetter, setLetter] = useState('letterN');
   const [emoji, setEmoji] = useState(null);
   const images = { letterN, letterO, letterP, letterQ }; //--------ADD NEW HERE--------
 
