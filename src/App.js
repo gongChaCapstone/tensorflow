@@ -37,7 +37,7 @@ import * as fp from 'fingerpose';
 // import letterG from './letterImages/letterG.png';
 // import letterH from './letterImages/letterH.png';
 import letterI from './letterImages/letterI.png';
-import letterJ from './letterImages/letterJ.png';
+// import letterJ from './letterImages/letterJ.png';
 import letterK from './letterImages/letterK.png';
 import letterL from './letterImages/letterL.png';
 
@@ -51,19 +51,19 @@ import letterL from './letterImages/letterL.png';
 // import letterGGesture from './letters/letterG';
 // import letterHGesture from './letters/letterH';
 import letterIGesture from './letters/letterI';
-import letterJGesture from './letters/letterJ';
+// import letterJGesture from './letters/letterJ';
 import letterKGesture from './letters/letterK';
 import letterLGesture from './letters/letterL';
 
 function App() {
-  const allLetters = ['letterI', 'letterJ', 'letterK', 'letterL'];
+  const allLetters = ['letterI', 'letterK', 'letterL'];
 
   const webcamRef = useRef(null);
   const canvasRef = useRef(null);
 
   const [currentLetter, setLetter] = useState('letterI');
   const [emoji, setEmoji] = useState(null);
-  const images = { letterI, letterJ, letterK, letterL }; //--------ADD NEW HERE--------
+  const images = { letterI, letterK, letterL }; //--------ADD NEW HERE--------
 
   const gestureAccuracyMany = 10;
   const gestureAccuracyOne = 9.5;
@@ -127,7 +127,6 @@ function App() {
         const GE = new fp.GestureEstimator([
           //--------ADD NEW HERE--------
           letterIGesture,
-          letterJGesture,
           letterKGesture,
           letterLGesture,
         ]);
