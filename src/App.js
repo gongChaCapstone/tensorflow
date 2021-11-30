@@ -65,7 +65,6 @@ import letterJ from './letterImages/letterJ.png';
 // import letterGGesture from './letters/letterG';
 // import letterHGesture from './letters/letterH';
 // import letterIGesture from './letters/letterI';
-// import letterJGesture from './letters/letterJ';
 // import letterKGesture from './letters/letterK';
 // import letterLGesture from './letters/letterL';
 // import letterMGesture from './letters/letterM';
@@ -77,20 +76,22 @@ import letterJ from './letterImages/letterJ.png';
 // import letterSGesture from './letters/letterS';
 // import letterTGesture from './letters/letterT';
 // import letterUGesture from './letters/letterU';
-import letterVGesture from './letters/letterV';
-import letterWGesture from './letters/letterW';
-import letterXGesture from './letters/letterX';
-import letterYGesture from './letters/letterY';
+// import letterVGesture from './letters/letterV';
+// import letterWGesture from './letters/letterW';
+// import letterXGesture from './letters/letterX';
+// import letterYGesture from './letters/letterY';
+import letterZGesture from './letters/letterZ';
+import letterJGesture from './letters/letterJ';
 
 function App() {
-  const allLetters = ['letterV', 'letterW', 'letterX', 'letterY'];
+  const allLetters = ['letterZ', 'letterJ'];
 
   const webcamRef = useRef(null);
   const canvasRef = useRef(null);
 
-  const [currentLetter, setLetter] = useState('letterV');
+  const [currentLetter, setLetter] = useState('letterZ');
   const [emoji, setEmoji] = useState(null);
-  const images = { letterV, letterW, letterX, letterY }; //--------ADD NEW HERE--------
+  const images = { letterZ, letterJ }; //--------ADD NEW HERE--------
 
   const gestureAccuracyMany = 9.9;
   const gestureAccuracyOne = 9.5;
@@ -153,10 +154,8 @@ function App() {
       if (hand.length > 0) {
         const GE = new fp.GestureEstimator([
           //--------ADD NEW HERE--------
-          letterVGesture,
-          letterWGesture,
-          letterXGesture,
-          letterYGesture,
+          letterZGesture,
+          letterJGesture,
         ]);
 
         //second argument is the confidence level
