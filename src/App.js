@@ -36,10 +36,15 @@ import * as fp from 'fingerpose';
 // import letterF from './letterImages/letterF.png';
 // import letterG from './letterImages/letterG.png';
 // import letterH from './letterImages/letterH.png';
-import letterI from './letterImages/letterI.png';
+// import letterI from './letterImages/letterI.png';
 // import letterJ from './letterImages/letterJ.png';
-import letterK from './letterImages/letterK.png';
-import letterL from './letterImages/letterL.png';
+// import letterK from './letterImages/letterK.png';
+// import letterL from './letterImages/letterL.png';
+// import letterM from './letterImages/letterM.png';
+import letterN from './letterImages/letterN.png';
+import letterO from './letterImages/letterO.png';
+import letterP from './letterImages/letterP.png';
+import letterQ from './letterImages/letterQ.png';
 
 //gestures
 // import letterAGesture from './letters/letterA';
@@ -50,22 +55,27 @@ import letterL from './letterImages/letterL.png';
 // import letterFGesture from './letters/letterF';
 // import letterGGesture from './letters/letterG';
 // import letterHGesture from './letters/letterH';
-import letterIGesture from './letters/letterI';
+// import letterIGesture from './letters/letterI';
 // import letterJGesture from './letters/letterJ';
-import letterKGesture from './letters/letterK';
-import letterLGesture from './letters/letterL';
+// import letterKGesture from './letters/letterK';
+// import letterLGesture from './letters/letterL';
+// import letterMGesture from './letters/letterM';
+import letterNGesture from './letters/letterN';
+import letterOGesture from './letters/letterO';
+import letterPGesture from './letters/letterP';
+import letterQGesture from './letters/letterQ';
 
 function App() {
-  const allLetters = ['letterI', 'letterK', 'letterL'];
+  const allLetters = ['letterN', 'letterO', 'letterP', 'letterQ'];
 
   const webcamRef = useRef(null);
   const canvasRef = useRef(null);
 
   const [currentLetter, setLetter] = useState('letterI');
   const [emoji, setEmoji] = useState(null);
-  const images = { letterI, letterK, letterL }; //--------ADD NEW HERE--------
+  const images = { letterN, letterO, letterP, letterQ }; //--------ADD NEW HERE--------
 
-  const gestureAccuracyMany = 10;
+  const gestureAccuracyMany = 9.9;
   const gestureAccuracyOne = 9.5;
 
   const runHandpose = async () => {
@@ -126,9 +136,10 @@ function App() {
       if (hand.length > 0) {
         const GE = new fp.GestureEstimator([
           //--------ADD NEW HERE--------
-          letterIGesture,
-          letterKGesture,
-          letterLGesture,
+          letterNGesture,
+          letterOGesture,
+          letterPGesture,
+          letterQGesture,
         ]);
 
         //second argument is the confidence level
