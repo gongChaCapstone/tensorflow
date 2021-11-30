@@ -15,37 +15,47 @@
 //4. Update detect function for gesture handling
 //5. Add emoji display to screen
 
-import React, { useRef, useState, useEffect } from "react";
-import logo from "./logo.svg";
-import * as tf from "@tensorflow/tfjs";
-import * as cocossd from "@tensorflow-models/coco-ssd";
-import * as handpose from "@tensorflow-models/handpose";
-import Webcam from "react-webcam";
-import "./App.css";
-import { drawHand, drawRect } from "./utilities";
-import * as fp from "fingerpose";
+import React, { useRef, useState, useEffect } from 'react';
+import logo from './logo.svg';
+import * as tf from '@tensorflow/tfjs';
+import * as cocossd from '@tensorflow-models/coco-ssd';
+import * as handpose from '@tensorflow-models/handpose';
+import Webcam from 'react-webcam';
+import './App.css';
+import { drawHand, drawRect } from './utilities';
+import * as fp from 'fingerpose';
 
 //images
-import victory from "./letterImages/victory.png";
-import thumbs_up from "./letterImages/thumbs_up.png";
-import letterA from "./letterImages/letterA.png";
-import letterB from "./letterImages/letterB.png";
-import letterC from "./letterImages/letterC.png";
+// import victory from './letterImages/victory.png';
+// import thumbs_up from './letterImages/thumbs_up.png';
+// import letterA from './letterImages/letterA.png';
+// import letterB from './letterImages/letterB.png';
+// import letterC from './letterImages/letterC.png';
+// import letterD from './letterImages/letterD.png';
+import letterE from './letterImages/letterE.png';
+import letterF from './letterImages/letterF.png';
+import letterG from './letterImages/letterG.png';
+import letterH from './letterImages/letterH.png';
 
 //gestures
-import letterAGesture from "./letters/letterA";
-import letterBGesture from "./letters/letterB";
-import letterCGesture from "./letters/letterC";
+// import letterAGesture from './letters/letterA';
+// import letterBGesture from './letters/letterB';
+// import letterCGesture from './letters/letterC';
+// import letterDGesture from './letters/letterD';
+import letterEGesture from './letters/letterE';
+import letterFGesture from './letters/letterF';
+import letterGGesture from './letters/letterG';
+import letterHGesture from './letters/letterH';
 
 function App() {
-  const allLetters = ["letterA", "letterB", "letterC"];
+  const allLetters = ['letterE', 'letterF', 'letterG', 'letterH'];
 
   const webcamRef = useRef(null);
   const canvasRef = useRef(null);
 
-  const [currentLetter, setLetter] = useState("letterA");
+  const [currentLetter, setLetter] = useState('letterE');
   const [emoji, setEmoji] = useState(null);
-  const images = { thumbs_up, victory, letterA, letterB, letterC }; //--------ADD NEW HERE--------
+  const images = { letterE, letterF, letterG, letterH }; //--------ADD NEW HERE--------
 
   const gestureAccuracyMany = 10;
   const gestureAccuracyOne = 9.5;
@@ -66,7 +76,7 @@ function App() {
         if (letterIndex < allLetters.length) {
           setTimeout(() => {
             setLetter(allLetters[letterIndex]);
-          }, 5000);
+          }, 3000);
         }
       }
     }, 100);
@@ -80,10 +90,10 @@ function App() {
   //   }, 10)
   // }
 
-  const detect = async net => {
+  const detect = async (net) => {
     //Check data is available
     if (
-      typeof webcamRef.current !== "undefined" &&
+      typeof webcamRef.current !== 'undefined' &&
       webcamRef.current !== null &&
       webcamRef.current.video.readyState === 4
     ) {
@@ -108,11 +118,10 @@ function App() {
       if (hand.length > 0) {
         const GE = new fp.GestureEstimator([
           //--------ADD NEW HERE--------
-          fp.Gestures.VictoryGesture,
-          fp.Gestures.ThumbsUpGesture,
-          letterAGesture,
-          letterBGesture,
-          letterCGesture,
+          letterEGesture,
+          letterFGesture,
+          letterGGesture,
+          letterHGesture,
         ]);
 
         //second argument is the confidence level
@@ -121,7 +130,7 @@ function App() {
 
         if (gesture.gestures !== undefined && gesture.gestures.length > 0) {
           const confidence = gesture.gestures.map(
-            prediction => prediction.score
+            (prediction) => prediction.score
           );
 
           const maxConfidence = confidence.indexOf(
@@ -166,18 +175,18 @@ function App() {
       <img
         src="https://cdn2.iconfinder.com/data/icons/greenline/512/check-512.png"
         style={{
-          position: "absolute",
-          marginLeft: "auto",
-          marginRight: "auto",
+          position: 'absolute',
+          marginLeft: 'auto',
+          marginRight: 'auto',
           left: 400,
           bottom: 50,
           right: 0,
-          textAlign: "center",
+          textAlign: 'center',
           height: 100,
         }}
       />
     ) : (
-      ""
+      ''
     );
 
   return (
@@ -186,12 +195,12 @@ function App() {
         <Webcam
           ref={webcamRef}
           style={{
-            position: "absolute",
-            marginLeft: "auto",
-            marginRight: "auto",
+            position: 'absolute',
+            marginLeft: 'auto',
+            marginRight: 'auto',
             left: 0,
             right: 0,
-            textAlign: "center",
+            textAlign: 'center',
             zindex: 9,
             width: 640,
             height: 480,
@@ -200,12 +209,12 @@ function App() {
         <canvas
           ref={canvasRef}
           style={{
-            position: "absolute",
-            marginLeft: "auto",
-            marginRight: "auto",
+            position: 'absolute',
+            marginLeft: 'auto',
+            marginRight: 'auto',
             left: 0,
             right: 0,
-            textAlign: "center",
+            textAlign: 'center',
             zindex: 9,
             width: 640,
             height: 480,
@@ -213,28 +222,27 @@ function App() {
         />
         <div
           style={{
-            position: "absolute",
-            marginLeft: "auto",
-            marginRight: "auto",
+            position: 'absolute',
+            marginLeft: 'auto',
+            marginRight: 'auto',
             left: 0,
             top: 100,
             right: 0,
-            textAlign: "center",
+            textAlign: 'center',
             height: 100,
-          }}
-        >
+          }}>
           Copy gesture to complete
         </div>
         <img
           src={images[currentLetter]}
           style={{
-            position: "absolute",
-            marginLeft: "auto",
-            marginRight: "auto",
+            position: 'absolute',
+            marginLeft: 'auto',
+            marginRight: 'auto',
             left: 100,
             bottom: 50,
             right: 0,
-            textAlign: "center",
+            textAlign: 'center',
             height: 100,
           }}
         />
